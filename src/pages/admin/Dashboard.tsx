@@ -46,7 +46,8 @@ export default function Dashboard() {
         <Kpi label={t('admin.kpiMilkToday')} value={`${L(day.data?.litres)} L`} />
         <Kpi label={t('admin.kpiMilkMonth')} value={`${L(m?.litres)} L`} />
         <Kpi label={t('admin.revenue') + ' (' + t('month') + ')'} value={inr(m?.revenue)} />
-        <Kpi label={t('admin.expenses') + ' (' + t('month') + ')'} value={inr(Number(m?.expenses || 0) + Number(m?.medical || 0))} tone="text-amber-700" />
+        <Kpi label={t('admin.expenses') + ' (' + t('month') + ')'} value={inr(Number(m?.expenses || 0) + Number(m?.medical || 0) + Number(m?.labour || 0))} tone="text-amber-700" />
+        <Kpi label={t('cash.month')} value={inr(m?.cash)} />
         <Kpi label={t('admin.profit')} value={inr(m?.profit)} tone={Number(m?.profit) >= 0 ? 'text-brand-700' : 'text-red-700'} />
         <Kpi label={t('admin.costPerLitre')} value={inr(m?.cost_per_litre)} />
         <Kpi label={t('admin.dues')} value={inr(dues)} tone="text-red-700" />

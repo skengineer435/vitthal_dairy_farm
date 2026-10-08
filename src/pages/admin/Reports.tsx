@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAnimals, useExpenses, useLedger, useMedical, useMilk, useSales } from '@/lib/data'
+import { useAnimals, useCash, useExpenses, useLabourPayments, useLedger, useMedical, useMilk, useSales } from '@/lib/data'
 import { Button, Card, Input, Segmented } from '@/components/ui'
 import { DataTable } from '@/components/DataTable'
 import { exportCSV, exportPDF, type Row } from '@/lib/export'
@@ -18,14 +18,17 @@ export default function Reports() {
   const [to, setTo] = useState(today)
   const { data: milk = [] } = useMilk(from, to)
   const { data: sales = [] } = useSales(from, to)
+  const { data: cash = [] } = useCash(from, to)
   const { data: exp = [] } = useExpenses(from, to)
   const { data: med = [] } = useMedical()
+  const { data: labourAll = [] } = useLabourPayments()
+  const labour = labourAll.filter((p) => p.entry_date >= from && p.entry_date <= to)
   const { data: ledger = [] } = useLedger()
   const { data: animals = [] } = useAnimals()
 
   const rows: Row[] = useMemo(
-    () => buildReport(tab, { milk, sales, exp, med, ledger: ledger.map((l) => ({ ...l })), animals, from, to }),
-    [tab, milk, sales, exp, med, ledger, animals, from, to],
+    () => buildReport(tab, { milk, sales, cash, exp, med, labour, ledger: ledger.map((l) => ({ ...l })), animals, from, to }),
+    [tab, milk, sales, cash, exp, med, labourAll, ledger, animals, from, to],
   )
   const cols = rows.length ? Object.keys(rows[0]) : []
   const label = t('reports.' + tab)
@@ -41,8 +44,8 @@ export default function Reports() {
         <Segmented<ReportTab> value={tab} onChange={setTab} options={TABS.map((v) => ({ v, label: t('reports.' + v) }))} />
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Input type="date" className="!w-40" value={from} onChange={(e) => setFrom(e.target.value)} />
-        <Input type="date" className="!w-40" value={to} onChange={(e) => setTo(e.target.value)} />
+        <Input type="date" className="!w-full sm:!w-40" value={from} onChange={(e) => setFrom(e.target.value)} />
+        <Input type="date" className="!w-full sm:!w-40" value={to} onChange={(e) => setTo(e.target.value)} />
         <Button size="sm" variant="outline" onClick={() => exportCSV(rows, `report-${tab}`)}>{t('csv')}</Button>
         <Button size="sm" variant="outline" onClick={() => exportPDF(rows, `report-${tab}`, `${label} (${fmtDate(from)} - ${fmtDate(to)})`)}>{t('pdf')}</Button>
       </div>

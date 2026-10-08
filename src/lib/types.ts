@@ -35,3 +35,15 @@ export interface Medical {
   notes: string | null; photo_url: string | null
 }
 export interface AuditRow { id: string; user_name: string | null; action: string; table_name: string; record_id: string | null; old_data: any; new_data: any; created_at: string }
+
+export const LABOUR_TYPES = ['Salary', 'Advance', 'Bonus', 'Other'] as const
+export interface Labourer {
+  id: string; name: string; phone: string | null; role: string | null; monthly_salary: number
+  join_date: string | null; active: boolean; notes: string | null
+}
+export interface LabourPayment {
+  id: string; labour_id: string; entry_date: string; amount: number; pay_type: string; mode: string; note: string | null
+}
+export interface CashCollection {
+  id: string; entry_date: string; amount: number; litres: number | null; handed_to: string | null; note: string | null
+}

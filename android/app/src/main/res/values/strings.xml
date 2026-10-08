@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Vitthal Dairy Farm</string>
+    <string name="title_activity_main">Vitthal Dairy Farm</string>
+    <string name="package_name">in.vitthaldairy.app</string>
+    <string name="custom_url_scheme">in.vitthaldairy.app</string>
+</resources>

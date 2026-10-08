@@ -36,7 +36,7 @@ export default function SettingsPage() {
       <h1 className="text-2xl font-extrabold text-brand-900">{t('nav.settings')}</h1>
       <Card className="space-y-3">
         <Field label={t('admin.farmName')}><Input value={s.farm_name} onChange={(e) => setS({ ...s, farm_name: e.target.value })} /></Field>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <Field label={t('admin.defaultRate') + ' (₹/L)'}><Input type="number" value={s.default_rate} onChange={(e) => setS({ ...s, default_rate: e.target.value })} /></Field>
           <Field label={t('admin.editDays')}><Input type="number" min="0" value={s.manager_edit_days} onChange={(e) => setS({ ...s, manager_edit_days: e.target.value })} /></Field>
         </div>

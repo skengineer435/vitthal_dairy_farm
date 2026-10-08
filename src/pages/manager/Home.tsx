@@ -47,12 +47,14 @@ export default function Home() {
         <Card><div className="text-sm text-gray-600">{t('home.expenses')}</div><div className="text-3xl font-extrabold text-brand-800">{inr(spent)}</div></Card>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
         <Big to="/m/milk" emoji="🥛" label={t('home.addMilk')} />
         <Big to="/m/customers" emoji="🚚" label={t('home.addDelivery')} />
         <Big to="/m/expenses" emoji="🌾" label={t('home.addExpense')} />
         <Big to="/m/health" emoji="💉" label={t('home.addHealth')} />
         <Big to="/m/animals" emoji="🐄" label={t('animal.title')} />
+        <Big to="/m/labour" emoji="👷" label={t('nav.labour')} />
+        <Big to="/m/cash" emoji="💵" label={t('nav.cash')} />
         <Big to="/m/customers?tab=pay" emoji="💰" label={t('home.addPayment')} />
       </div>
 
