@@ -1,4 +1,4 @@
--- DairyDesk sample data (part 1 of 2): 10 animals, 8 customers, 30 days of milk production and sales.
+-- DairyFarmDesk sample data (part 1 of 2): 10 animals, 8 customers, 30 days of milk production and sales.
 -- Run in the Supabase SQL editor AFTER migrations 0001-0004, on an empty database. Then run seed_2.sql.
 
 insert into animals (tag_no, name, type, breed, dob, purchase_date, purchase_price, source, status, notes) values

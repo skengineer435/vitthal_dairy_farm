@@ -1,4 +1,4 @@
--- DairyDesk sample data (part 2 of 2): payments, expenses, medical records. Run after seed.sql.
+-- DairyFarmDesk sample data (part 2 of 2): payments, expenses, medical records. Run after seed.sql.
 
 -- Payments: roughly every 10 days, about 8 days' worth of milk each time
 insert into customer_payments (customer_id, entry_date, amount, mode, note)

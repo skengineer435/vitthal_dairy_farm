@@ -1,10 +1,27 @@
 apply plugin: 'com.android.application'
 
+// Release signing: reads android/key.properties (git-ignored). Falls back to unsigned if missing.
+def keystoreProps = new Properties()
+def keystoreFile = rootProject.file('key.properties')
+if (keystoreFile.exists()) {
+    keystoreFile.withInputStream { keystoreProps.load(it) }
+}
+
 android {
-    namespace "in.vitthaldairy.app"
+    namespace "in.dairyfarmdesk.app"
     compileSdk rootProject.ext.compileSdkVersion
+    signingConfigs {
+        release {
+            if (keystoreFile.exists()) {
+                storeFile file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
     defaultConfig {
-        applicationId "in.vitthaldairy.app"
+        applicationId "in.dairyfarmdesk.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -20,6 +37,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (keystoreFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }

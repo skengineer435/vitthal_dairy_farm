@@ -29,7 +29,7 @@ export default function Login() {
     <div className="flex min-h-screen flex-col bg-brand-700">
       <div className="flex justify-end p-4"><LangToggle light /></div>
       <div className="flex flex-1 flex-col items-center justify-center px-5">
-        <img src="/favicon.svg" className="mb-3 h-28 w-28 rounded-3xl shadow-xl" alt="Vitthal Dairy Farm logo" />
+        <img src="/favicon.svg" className="mb-3 h-28 w-28 rounded-3xl shadow-xl" alt="DairyFarmDesk logo" />
         <h1 className="mb-6 text-center text-3xl font-extrabold text-white">{t('app')}</h1>
         <form onSubmit={submit} className="w-full max-w-sm space-y-4 rounded-3xl bg-white p-6 shadow-2xl">
           {!configured && <p className="rounded-lg bg-amber-100 p-2 text-sm text-amber-900">Supabase env vars are missing (VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY).</p>}

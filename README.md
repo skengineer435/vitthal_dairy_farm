@@ -1,4 +1,4 @@
-# Vitthal Dairy Farm 🐄
+# DairyFarmDesk 🐄
 
 Dairy farm management for small and medium Indian farms. One codebase, two experiences:
 
@@ -54,9 +54,9 @@ npm run dev
 ```bash
 git init
 git add .
-git commit -m "DairyDesk"
+git commit -m "DairyFarmDesk"
 git branch -M main
-git remote add origin https://github.com/YOUR-USER/dairydesk.git
+git remote add origin https://github.com/YOUR-USER/dairyfarmdesk.git
 git push -u origin main
 ```
 
