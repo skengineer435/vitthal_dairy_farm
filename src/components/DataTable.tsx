@@ -52,9 +52,9 @@ export function DataTable<T>({ rows, cols, exportName, toolbar, actions, pageSiz
   return (
     <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
       <div className="flex flex-wrap items-center gap-2 border-b border-gray-200 p-3">
-        <Input className="!h-10 max-w-[220px]" placeholder={t('search')} value={q} onChange={(e) => { setQ(e.target.value); setPage(0) }} />
+        <Input className="!h-10 w-full sm:max-w-[220px]" placeholder={t('search')} value={q} onChange={(e) => { setQ(e.target.value); setPage(0) }} />
         {toolbar}
-        <div className="ml-auto flex items-center gap-1">
+        <div className="flex w-full flex-wrap items-center gap-1 sm:ml-auto sm:w-auto">
           <Download className="h-4 w-4 text-gray-500" />
           <Button size="sm" variant="outline" onClick={() => exportCSV(exportRows(), exportName)}>{t('csv')}</Button>
           <Button size="sm" variant="outline" onClick={() => exportXLSX(exportRows(), exportName)}>{t('excel')}</Button>
@@ -95,7 +95,7 @@ export function DataTable<T>({ rows, cols, exportName, toolbar, actions, pageSiz
           </tbody>
         </table>
       </div>
-      <div className="flex items-center justify-between border-t border-gray-200 p-3 text-sm text-gray-600">
+      <div className="flex flex-col items-center justify-between gap-2 border-t border-gray-200 p-3 text-sm text-gray-600 sm:flex-row">
         <span>{filtered.length} {t('rows')}</span>
         <div className="flex items-center gap-2">
           <Button size="sm" variant="outline" disabled={cur === 0} onClick={() => setPage(cur - 1)}>{t('prev')}</Button>
@@ -110,7 +110,7 @@ export function DataTable<T>({ rows, cols, exportName, toolbar, actions, pageSiz
 export function DateRange({ from, to, setFrom, setTo }: { from: string; to: string; setFrom: (v: string) => void; setTo: (v: string) => void }) {
   const { t } = useTranslation()
   return (
-    <div className="flex items-center gap-1 text-sm">
+    <div className="flex flex-wrap items-center gap-1 text-sm">
       <span className="text-gray-600">{t('from')}</span>
       <Input type="date" className="!h-10 !w-36" value={from} onChange={(e) => setFrom(e.target.value)} />
       <span className="text-gray-600">{t('to')}</span>

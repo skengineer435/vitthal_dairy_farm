@@ -109,6 +109,7 @@ export default function MilkEntry() {
       {mode === 'quick' ? (
         <>
           {lact.length === 0 && <div className="p-6 text-center text-gray-500">{t('milk.noLactating')}</div>}
+          <div className="grid gap-3 lg:grid-cols-2">
           {lact.map((a) => {
             const v = vals[a.id]
             const bad = v?.l !== undefined && v.l !== '' && unusual(a.id, Number(v.l))
@@ -126,7 +127,8 @@ export default function MilkEntry() {
               </Card>
             )
           })}
-          <div className="sticky bottom-24 z-10">
+          </div>
+          <div className="sticky bottom-24 z-10 md:bottom-4">
             <Button size="lg" className="w-full shadow-xl" disabled={busy || !filled} onClick={() => saveAll(lact.map((a) => a.id))}>
               {t('milk.saveAll')} ({filled}) · {L(shiftTotal)} L
             </Button>

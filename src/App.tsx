@@ -16,6 +16,10 @@ import AdminMilk from './pages/admin/AdminMilk'
 import AdminSales from './pages/admin/AdminSales'
 import AdminExpenses from './pages/admin/AdminExpenses'
 import AdminHealth from './pages/admin/AdminHealth'
+import AdminLabour from './pages/admin/AdminLabour'
+import LabourPage from './pages/manager/LabourPage'
+import AdminCash from './pages/admin/AdminCash'
+import CashPage from './pages/manager/CashPage'
 import Reports from './pages/admin/Reports'
 import SettingsPage from './pages/admin/SettingsPage'
 import AuditLog from './pages/admin/AuditLog'
@@ -46,6 +50,8 @@ export default function App() {
         <Route path="customers" element={<CustomersPage />} />
         <Route path="expenses" element={<ExpensesPage />} />
         <Route path="health" element={<HealthPage />} />
+        <Route path="labour" element={<LabourPage />} />
+        <Route path="cash" element={<CashPage />} />
         <Route path="animals" element={<AnimalsList />} />
         <Route path="animals/:id" element={<AnimalProfile />} />
       </Route>
@@ -57,6 +63,8 @@ export default function App() {
         <Route path="sales" element={<AdminSales />} />
         <Route path="expenses" element={<AdminExpenses />} />
         <Route path="health" element={<AdminHealth />} />
+        <Route path="labour" element={<AdminLabour />} />
+        <Route path="cash" element={<AdminCash />} />
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="audit" element={<AuditLog />} />

@@ -54,13 +54,13 @@ export function Badge({ children, tone = 'gray' }: { children: ReactNode; tone?:
 
 export function Segmented<T extends string>({ value, onChange, options }: { value: T; onChange: (v: T) => void; options: { v: T; label: string }[] }) {
   return (
-    <div className="grid auto-cols-fr grid-flow-col gap-1 rounded-2xl bg-gray-200 p-1">
+    <div className="flex gap-1 overflow-x-auto rounded-2xl bg-gray-200 p-1">
       {options.map((o) => (
         <button
           key={o.v}
           type="button"
           onClick={() => onChange(o.v)}
-          className={cn('h-12 rounded-xl text-base font-bold', value === o.v ? 'bg-brand-700 text-white shadow' : 'text-gray-700')}
+          className={cn('h-12 min-w-fit flex-1 whitespace-nowrap rounded-xl px-3 text-base font-bold', value === o.v ? 'bg-brand-700 text-white shadow' : 'text-gray-700')}
         >
           {o.label}
         </button>
@@ -73,7 +73,7 @@ export function Modal({ open, onClose, title, children }: { open: boolean; onClo
   if (!open) return null
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 sm:items-center" onClick={onClose}>
-      <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl bg-white p-5 sm:max-w-xl sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
+      <div className="max-h-[92dvh] w-full overflow-y-auto rounded-t-3xl bg-white p-5 sm:max-w-xl sm:rounded-3xl" onClick={(e) => e.stopPropagation()}>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-extrabold text-brand-900">{title}</h2>
           <button onClick={onClose} className="h-10 w-10 rounded-full text-2xl text-gray-500 hover:bg-gray-100" aria-label="close">×</button>

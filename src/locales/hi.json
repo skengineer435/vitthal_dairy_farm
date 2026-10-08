@@ -11,7 +11,7 @@
   "nav": {
     "home": "होम", "milk": "दूध", "customers": "ग्राहक", "expenses": "खर्च", "health": "स्वास्थ्य", "animals": "पशु",
     "dashboard": "डैशबोर्ड", "sales": "ग्राहक व बिक्री", "reports": "रिपोर्ट", "settings": "यूज़र व सेटिंग", "audit": "ऑडिट लॉग",
-    "managerApp": "मैनेजर ऐप", "adminConsole": "एडमिन कंसोल"
+    "managerApp": "मैनेजर ऐप", "adminConsole": "एडमिन कंसोल", "labour": "मज़दूर", "cash": "नकद बिक्री"
   },
   "home": {
     "totalMilk": "आज का कुल दूध", "sold": "बेचा गया दूध", "expenses": "आज का खर्च", "alerts": "अलर्ट",
@@ -53,5 +53,15 @@
   "reports": {
     "daily": "दैनिक सारांश", "monthly": "मासिक सारांश", "yearly": "वार्षिक सारांश", "pnl": "लाभ व हानि", "dues": "ग्राहक-वार बकाया", "yield": "पशु-वार उत्पादन"
   },
-  "pending": "लंबित", "offline": "ऑफलाइन", "syncNow": "अभी सिंक करें", "install": "ऐप इंस्टॉल करें"
+  "pending": "लंबित", "offline": "ऑफलाइन", "syncNow": "अभी सिंक करें", "install": "ऐप इंस्टॉल करें",
+  "labour": {
+    "workers": "मज़दूर", "addWorker": "मज़दूर जोड़ें", "worker": "मज़दूर", "role": "काम / पद", "salary": "मासिक वेतन", "joined": "काम शुरू करने की तारीख",
+    "pickWorker": "मज़दूर चुनें और राशि भरें", "paidThisMonth": "इस माह मज़दूरों को दिया", "balance": "बाकी", "extra": "ज़्यादा दिया",
+    "settled": "हिसाब पूरा", "advancesMonth": "इस माह एडवांस", "totalEver": "कुल दिया (अब तक)", "history": "भुगतान का इतिहास", "allPayments": "सभी भुगतान"
+  },
+  "cash": {
+    "today": "आज की नकद वसूली", "month": "इस माह की नकद वसूली", "collected": "नकद प्राप्त", "litresSold": "बेचा गया दूध, लीटर (वैकल्पिक)",
+    "handedTo": "नकद किसे दिया (मालिक)", "ownerName": "मालिक का नाम", "history": "दैनिक नकद रिकॉर्ड", "noOwner": "मालिक का नाम नहीं लिखा",
+    "enterAmount": "नकद राशि भरें", "entryTab": "जोड़ें / दैनिक", "allTab": "सभी रिकॉर्ड"
+  }
 }

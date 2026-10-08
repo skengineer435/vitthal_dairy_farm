@@ -1,0 +1,9 @@
+{
+	"appId": "in.vitthaldairy.app",
+	"appName": "Vitthal Dairy Farm",
+	"webDir": "dist",
+	"backgroundColor": "#15803d",
+	"android": {
+		"allowMixedContent": false
+	}
+}

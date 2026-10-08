@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { supabase } from './supabase'
 import { mutate } from './offline'
-import type { Animal, Customer, Expense, Medical, Milk, Payment, Sale } from './types'
+import type { Animal, CashCollection, Customer, Expense, Labourer, LabourPayment, Medical, Milk, Payment, Sale } from './types'
 import { addDays, todayIST } from './format'
 
 const run = async <T,>(p: PromiseLike<{ data: any; error: any }>): Promise<T> => {
@@ -58,6 +58,21 @@ export const useLedger = () =>
   useQuery({
     queryKey: ['ledger'],
     queryFn: () => run<{ customer_id: string; name: string; phone: string | null; opening: number; supplied: number; paid: number; outstanding: number }[]>(supabase.rpc('customer_ledger')),
+  })
+
+export const useLabourers = () =>
+  useQuery({ queryKey: ['labourers'], queryFn: () => all<Labourer>((f, t) => supabase.from('labourers').select('*').order('name').range(f, t)) })
+
+export const useCash = (from: string, to: string) =>
+  useQuery({
+    queryKey: ['cash', from, to],
+    queryFn: () => all<CashCollection>((f, t) => supabase.from('cash_collections').select('*').gte('entry_date', from).lte('entry_date', to).order('entry_date', { ascending: false }).range(f, t)),
+  })
+
+export const useLabourPayments = () =>
+  useQuery({
+    queryKey: ['labour_payments'],
+    queryFn: () => all<LabourPayment>((f, t) => supabase.from('labour_payments').select('*').order('entry_date', { ascending: false }).range(f, t)),
   })
 
 export const useWithdrawal = () =>

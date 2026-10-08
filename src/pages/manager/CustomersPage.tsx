@@ -81,6 +81,7 @@ function Deliveries() {
           <Field label={fmtDate(date)}><Segmented value={shift} onChange={setShift} options={[{ v: 'Morning', label: '☀ ' + t('morning') }, { v: 'Evening', label: '🌙 ' + t('evening') }]} /></Field>
         </div>
       </Card>
+      <div className="grid gap-3 lg:grid-cols-2">
       {active.map((c) => {
         const absent = Number(litres[c.id]) === 0 && litres[c.id] !== ''
         return (
@@ -99,8 +100,9 @@ function Deliveries() {
           </Card>
         )
       })}
+      </div>
       <Button variant="outline" className="w-full" onClick={() => setAddNew(true)}>+ {t('cust.addCustomer')}</Button>
-      <div className="sticky bottom-24 z-10">
+      <div className="sticky bottom-24 z-10 md:bottom-4">
         <Button size="lg" className="w-full shadow-xl" disabled={busy || !filled.length} onClick={saveAll}>
           {t('milk.saveAll')} · {L(total)} L · {inr(amount)}
         </Button>
