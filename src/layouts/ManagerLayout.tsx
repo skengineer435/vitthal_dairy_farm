@@ -4,6 +4,7 @@ import { Home, Milk, Users, Receipt, HeartPulse, LogOut, LayoutDashboard, PawPri
 import { useAuth } from '@/lib/auth'
 import { LangToggle, SyncStatus } from '@/components/Status'
 import { fmtDate, todayIST } from '@/lib/format'
+import { PublicFooter } from '@/pages/legal/LegalLayout'
 
 /**
  * Responsive manager layout:
@@ -61,7 +62,7 @@ export default function ManagerLayout() {
           {isAdmin && <Link to="/admin" className="grid h-10 w-10 place-items-center rounded-full bg-white/20 md:hidden"><LayoutDashboard className="h-5 w-5" /></Link>}
           <button onClick={signOut} className="grid h-10 w-10 place-items-center rounded-full bg-white/20 md:hidden" aria-label={t('logout')}><LogOut className="h-5 w-5" /></button>
         </header>
-        <main className="mx-auto w-full max-w-xl flex-1 p-3 pb-28 md:max-w-4xl md:p-6 md:pb-8 xl:max-w-6xl"><Outlet /></main>
+        <main className="mx-auto w-full max-w-xl flex-1 p-3 pb-28 md:max-w-4xl md:p-6 md:pb-8 xl:max-w-6xl"><Outlet /><div className="mt-8"><PublicFooter /></div></main>
       </div>
 
       <nav className="safe-bottom fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t-2 border-brand-700 bg-white md:hidden">

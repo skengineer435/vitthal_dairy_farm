@@ -5,6 +5,7 @@ import { supabase, configured } from '@/lib/supabase'
 import { useAuth } from '@/lib/auth'
 import { Button, Field, Input } from '@/components/ui'
 import { LangToggle } from '@/components/Status'
+import { PublicFooter } from '@/pages/legal/LegalLayout'
 
 export default function Login() {
   const { t } = useTranslation()
@@ -39,6 +40,7 @@ export default function Login() {
           {session && !loading && !profile && <p className="text-sm font-semibold text-red-600">No profile/role found for this user. Ask the admin to set up your account.</p>}
           <Button size="lg" className="w-full" disabled={busy}>{busy ? t('loading') : t('signin')}</Button>
         </form>
+        <div className="mt-6"><PublicFooter light /></div>
       </div>
     </div>
   )

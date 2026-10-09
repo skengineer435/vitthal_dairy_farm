@@ -23,6 +23,11 @@ import CashPage from './pages/manager/CashPage'
 import Reports from './pages/admin/Reports'
 import SettingsPage from './pages/admin/SettingsPage'
 import AuditLog from './pages/admin/AuditLog'
+import About from './pages/legal/About'
+import PrivacyPolicy from './pages/legal/PrivacyPolicy'
+import Terms from './pages/legal/Terms'
+import DeleteAccount from './pages/legal/DeleteAccount'
+import Support from './pages/legal/Support'
 
 function Guard({ admin, children }: { admin?: boolean; children: JSX.Element }) {
   const { session, profile, isAdmin, loading } = useAuth()
@@ -44,6 +49,11 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Root />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/delete-account" element={<DeleteAccount />} />
+      <Route path="/support" element={<Support />} />
       <Route path="/m" element={<Guard><ManagerLayout /></Guard>}>
         <Route index element={<Home />} />
         <Route path="milk" element={<MilkEntry />} />

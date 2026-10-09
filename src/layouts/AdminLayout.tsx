@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { LayoutDashboard, PawPrint, Milk, Users, Receipt, HeartPulse, HardHat, Banknote, FileBarChart, Settings, ScrollText, LogOut, Smartphone } from 'lucide-react'
 import { useAuth } from '@/lib/auth'
 import { LangToggle, SyncStatus } from '@/components/Status'
+import { PublicFooter } from '@/pages/legal/LegalLayout'
 
 export default function AdminLayout() {
   const { t } = useTranslation()
@@ -63,7 +64,7 @@ export default function AdminLayout() {
           ))}
           <button onClick={signOut} className="shrink-0 px-3 text-xs font-bold text-red-600">{t('logout')}</button>
         </nav>
-        <main className="p-3 sm:p-4 lg:p-6"><Outlet /></main>
+        <main className="p-3 sm:p-4 lg:p-6"><Outlet /><div className="mt-8"><PublicFooter /></div></main>
       </div>
     </div>
   )
