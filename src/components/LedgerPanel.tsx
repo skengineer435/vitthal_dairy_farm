@@ -37,7 +37,7 @@ export default function LedgerPanel() {
     const lines = Object.keys(byDate).sort().map((d) => `${fmtDate(d)}: ${L(sum(byDate[d], (s) => s.litres))} L`)
     const rates = [...new Set(mySales.map((s) => s.rate))].join('/')
     return [
-      `*${settings?.farm_name || 'DairyDesk'}*`, `Milk bill – ${month.split('-').reverse().join('-')}`, `Customer: ${c.name}`, '',
+      `*${settings?.farm_name || 'DairyFarmDesk'}*`, `Milk bill – ${month.split('-').reverse().join('-')}`, `Customer: ${c.name}`, '',
       ...lines, '', `Total litres: ${L(totalL)}`, `Rate: ₹${rates}/L`, `Total amount: ${inr(total)}`, `Paid: ${inr(myPaid)}`, `*Balance due: ${inr(balance)}*`,
     ].join('\n')
   }
@@ -49,7 +49,7 @@ export default function LedgerPanel() {
   const pdf = () => {
     if (!c) return
     billPDF({
-      farm: settings?.farm_name || 'DairyDesk', customer: c.name, month: month.split('-').reverse().join('-'), rate: '',
+      farm: settings?.farm_name || 'DairyFarmDesk', customer: c.name, month: month.split('-').reverse().join('-'), rate: '',
       lines: mySales.map((s) => [fmtDate(s.entry_date), s.shift, L(s.litres), String(s.rate), String(s.amount)]),
       totalL, total, paid: myPaid, balance,
     })

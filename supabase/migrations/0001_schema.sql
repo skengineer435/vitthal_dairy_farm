@@ -1,4 +1,4 @@
--- DairyDesk schema. Run in the Supabase SQL editor in order: 0001, 0002, 0003, 0004, then seed.sql (optional)
+-- DairyFarmDesk schema. Run in the Supabase SQL editor in order: 0001, 0002, 0003, 0004, then seed.sql (optional)
 create extension if not exists pgcrypto;
 
 create type user_role as enum ('admin','manager');
@@ -13,7 +13,7 @@ create type medical_type as enum ('Treatment','Vaccination','Deworming','Artific
 
 create table settings (
   id int primary key default 1 check (id = 1),
-  farm_name text not null default 'Vitthal Dairy Farm',
+  farm_name text not null default 'DairyFarmDesk',
   logo_url text,
   default_rate numeric(8,2) not null default 55,
   manager_edit_days int not null default 2,

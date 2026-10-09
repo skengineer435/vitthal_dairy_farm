@@ -1,6 +1,6 @@
 {
-	"appId": "in.vitthaldairy.app",
-	"appName": "Vitthal Dairy Farm",
+	"appId": "in.dairyfarmdesk.app",
+	"appName": "DairyFarmDesk",
 	"webDir": "dist",
 	"backgroundColor": "#15803d",
 	"android": {

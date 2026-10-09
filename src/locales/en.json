@@ -1,5 +1,5 @@
 {
-  "app": "Vitthal Dairy Farm",
+  "app": "DairyFarmDesk",
   "login": "Login", "email": "Email", "password": "Password", "logout": "Logout", "signin": "Sign in",
   "welcome": "Welcome", "loading": "Loading…", "save": "Save", "cancel": "Cancel", "edit": "Edit", "delete": "Delete",
   "add": "Add", "search": "Search", "export": "Export", "csv": "CSV", "excel": "Excel", "pdf": "PDF", "all": "All",

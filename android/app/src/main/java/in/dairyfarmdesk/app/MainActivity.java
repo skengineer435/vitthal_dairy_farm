@@ -1,4 +1,4 @@
-package in.vitthaldairy.app;
+package in.dairyfarmdesk.app;
 
 import com.getcapacitor.BridgeActivity;
 

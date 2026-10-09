@@ -12,9 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
       manifest: {
-        name: 'Vitthal Dairy Farm',
-        short_name: 'Vitthal Dairy',
-        description: 'Vitthal Dairy Farm management',
+        name: 'DairyFarmDesk',
+        short_name: 'DairyFarmDesk',
+        description: 'DairyFarmDesk - dairy farm management',
         theme_color: '#15803d',
         background_color: '#ffffff',
         display: 'standalone',

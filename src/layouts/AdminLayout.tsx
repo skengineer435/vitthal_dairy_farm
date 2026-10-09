@@ -27,7 +27,7 @@ export default function AdminLayout() {
           <img src={settings?.logo_url || '/favicon.svg'} className="h-9 w-9 rounded-lg bg-white object-contain" alt="" />
           <div className="min-w-0">
             <div className="truncate font-extrabold">{settings?.farm_name || t('app')}</div>
-            <div className="text-xs text-brand-200">DairyDesk</div>
+            <div className="text-xs text-brand-200">DairyFarmDesk</div>
           </div>
         </div>
         <nav className="flex-1 space-y-1 overflow-y-auto px-2">
